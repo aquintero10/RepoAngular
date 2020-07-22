@@ -1,0 +1,52 @@
+<p>formulario works!</p>
+<p>Nombre:</p>
+<input type="text" name="" [value]="defaultName">
+<p>Email:</p>
+<input #email type="text" name="">
+<hr>
+<button (click)="onSendForm(email.value)">Enviar --></button>
+<hr>
+<button (click)="onDefaultForm()">Default</button>
+
+<p>{{ status }}</p>
+
+<div *ngIf="displayPassword; then showPassword; else hidePassword">
+    
+</div>
+
+<ng-template #showPassword>
+    <p>999999</p>
+</ng-template>
+
+<ng-template #hidePassword>
+    <p>no muestro password</p>
+</ng-template>
+
+<div [ngSwitch]="lightStatus">
+    <div *ngSwitchCase="'GREEN'">
+        <span style="color:green">VERDE</span>
+    </div>
+    <div *ngSwitchCase="'RED'">
+        <span style="color:red">ROJO</span>
+    </div>
+    <div *ngSwitchCase="'AZUL'">
+        <span style="color:blue">AZUL</span>
+    </div>
+    <div *ngSwitchCase="'AMARILLO'">
+        <span style="color:yellow">AMARILLO</span>
+    </div>
+    <div *ngSwitchDefault>
+        <span style="color:gray">GRIS</span>
+    </div>
+</div>
+
+<div *ngFor="let patos of names">
+    <p>{{ patos }}</p>
+</div>
+
+
+<p>{{ child }}</p>
+
+<button (click)="onSendEvent()">Enviar a padre</button>
+
+<p>{{ errorMessage }}</p>
